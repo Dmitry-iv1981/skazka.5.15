@@ -1,0 +1,59 @@
+<!DOCTYPEhtml>
+<html lang="ru">
+<head>
+ 	<meta charset="UTF-8" >
+	<title>Сказка про курочку Рябу</title>
+	<link rel="stylesheet" type="text/css" href="./Ряба.css">
+</head>
+<body>
+	<div class="story">
+		<div class="inputs">
+			<input class="input1" type="text" name="var1" id="inp1" placeholder="Первый герой">
+			<input class="input2" type="text" name="var2" id="inp2" placeholder="Второй герой">
+			<input class="input3" type="text" name="var3" id="inp3" placeholder="Их питомец">
+			<input class="input4" type="text" name="var4" id="inp4" placeholder="Питомец снес">
+			<input class="input5" type="text" name="var5" id="inp5" placeholder="Вредитель">
+			<input class="input6" type="text" name="var6" id="inp6" placeholder="Орудие вредительства">
+			<input class="inputSpeech" type="text" name="speech" id="sp" placeholder="Монолог питомца">
+		</div>
+		<div class="buttons">
+			<button class="button1" type="submit">Создать текст</button>
+			<button class="button2" type="submit">Заменить переменные</button>
+		</div>
+		<h2>"Сказка про курочку Рябу:"</h2>
+		<p class="paragraph"></p>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>	
+		
+	<script type="text/javascript">
+	
+		let paragraph = document.querySelector('.paragraph');
+
+		let button1 = document.querySelector('.button1');
+		button1.addEventListener('click', showParagraph);
+		function showParagraph(){
+			let skazka = `"text":["Жили-были {var1} да {var2}","Была у них {var3}","Снесла {var3} {var4}, не простое - золотое","- {var1} бил, бил - не разбил","- {var2} била, била - не разбила","{var5} бежала, {var6} задела, {var4} упало и разбилось.","{var1} плачет, {var2} плачет, а {var3} кудахчет:","{speech}"]}`;
+		
+
+			paragraph.textContent = skazka;
+		}
+		let button2 = document.querySelector('.button2');
+		button2.addEventListener('click', showParagraph2);
+		function showParagraph2(){
+			
+			let var1 = document.querySelector('.input1').value;
+			let var2 = document.querySelector('.input2').value;
+			let var3 = document.querySelector('.input3').value;
+			let var4 = document.querySelector('.input4').value;
+			let var5 = document.querySelector('.input5').value;
+			let var6 = document.querySelector('.input6').value;
+			let speech = document.querySelector('.inputSpeech').value;
+			let riaba = `Жили-были ${var1} да ${var2},Была у них ${var3},Снесла ${var3} ${var4}, не простое - золотое,- ${var1} бил, бил - не разбил,-${var2} била, била - не разбила,${var5} бежала, ${var6} задела, ${var4} упало и разбилось.,
+			${var1} плачет, ${var2} плачет, а ${var3} кудахчет:"${speech}"`;
+			
+			paragraph.textContent = riaba;
+		
+		}
+		
+	</script>	
+</body>
